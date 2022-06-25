@@ -8,12 +8,14 @@
 
 	$res=mysqli_query($conn,$sql);
 
-	if ($res) {
+	if ($res)
+	{
 		echo "success";
-	}else{
+	}
+	else
+	{
 		echo "error";
 	}
-
  ?>
 
  <!DOCTYPE html>

@@ -4,15 +4,13 @@
 	$user=$_POST["username"];
 	$pass=$_POST["password"];
 
-	
-	if (isset($_POST['remember'])) {
+	if (isset($_POST['remember']))
+	{
 		session_start();
 		$_SESSION['usern']=$user;
 		$_SESSION['passw']=$pass;
-
 		echo " Session established";
 	}
-
 
 	$us=0;
 	$ps=0;
@@ -20,40 +18,47 @@
 
 	$res=mysqli_query($conn, $sql);
 
- while($ans=mysqli_fetch_assoc($res)){
- 	
-	 	if($ans['user']==$user) {
-	 		if($ans['pass']==$pass) {
-			 		$us=1;$ps=1;
+ 	while($ans=mysqli_fetch_assoc($res))
+ 	{
+ 	 	if($ans['user']==$user)
+ 	 	{
+	 		if($ans['pass']==$pass)
+	 		{
+				$us=1;$ps=1;
 			 		
 	 		}
-	 		else{
+	 		else
+	 		{
 	 			$us=1;
-	 				}
-
+	 		}
 	 	}
-	 }
+	}
 
-	 if($us==1 && $ps==1){
+	 if($us==1 && $ps==1)
+	 {
 	 	echo "login successful";
 	 }
 	 
-	 else if ($us==1) {
-	 	 	echo "Password is incorrect";
-	 
-	  }
+	 else if ($us==1)
+	 {
+	 	echo "Password is incorrect";
+	 }
 
-	 else{
-	 	echo "Username is incorrect";}
+	 else
+	 {
+	 	echo "Username is incorrect";
+	 }
 	 	
-
-	
-	if ($res) {
+	if ($res)
+	{
 		echo ".";
-	}else{
+	}
+	else
+	{
 		echo "error";
 	} 
- ?> 
+?> 
+
 <!DOCTYPE html>
  <html>
  <head>
